@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeyondIIM - Crack the MBA Code</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: white;
+      color: black;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #4979C9;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    header::after {
+      content: url('https://cdn-icons-png.flaticon.com/512/3062/3062634.png');
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      opacity: 0.15;
+    }
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      background: #4979C9;
+      color: white;
+      padding: 12px 24px;
+      margin: 20px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s, background 0.3s;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .cta-buttons a:hover {
+      transform: scale(1.05);
+      background: #365fa2;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      background-color: white;
+      animation: fadeIn 1.2s ease-in;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #4979C9;
+    }
+    .features, .courses, .mentors, .career-support, .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      text-align: center;
+      color: black;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .card img {
+      max-width: 60px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      color: #4979C9;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f2f2f2;
+      font-size: 14px;
+      color: black;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Crack the MBA Code with <strong>BeyondIIM</strong></h1>
+    <p>Real mentors. Real skills. Real careers.</p>
+    <div class="cta-buttons">
+      <a href="#courses">Explore Courses</a>
+      <a href="#mentors">Meet Our Mentors</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why BeyondIIM?</h2>
+    <div class="features">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Mentor">
+        <h3>Real IIM Mentors</h3>
+        <p>Learn directly from IIM grads & top industry leaders.</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103625.png" alt="Career">
+        <h3>Career-Focused Skills</h3>
+        <p>Hands-on projects built for real career growth.</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="Guidance">
+        <h3>Personal Guidance</h3>
+        <p>1-on-1 mentoring, resume reviews & mock interviews.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2>Courses We Offer</h2>
+    <div class="courses">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2721/2721647.png" alt="IT Consulting">
+        <h3>IT Consulting</h3>
+        <p>4 weeks | Career-ready skills | Online</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3534/3534066.png" alt="Project Management">
+        <h3>Project Management</h3>
+        <p>6 weeks | Agile & PM tools | Hybrid</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Sales">
+        <h3>Sales & Distribution</h3>
+        <p>4 weeks | Real-world sales projects</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mentors">
+    <h2>Meet Your Mentors</h2>
+    <div class="mentors">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ankit">
+        <h3>Ankit | IIM A</h3>
+        <p>Ex-BCG, Strategy Coach</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Riya">
+        <h3>Riya | IIM L</h3>
+        <p>Product Manager, Meesho</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Rahul">
+        <h3>Rahul | IIM B</h3>
+        <p>Senior Consultant, Deloitte</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Career Support that Works</h2>
+    <div class="career-support">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Success">
+        <h3>🎯 90% Interview Success</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2630/2630578.png" alt="Salary">
+        <h3>💼 ₹7–20 LPA CTC</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1578/1578944.png" alt="Hiring Partners">
+        <h3>🤝 40+ Hiring Partners</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Testimonial">
+      <p>“BeyondIIM helped me crack a PM role at a top startup!” – Riya, IIM Lucknow</p>
+    </div>
+  </section>
+
+  <section style="text-align: center;">
+    <h2>Ready to Crack the MBA Code?</h2>
+    <a class="cta-buttons" href="#">Start Learning Now</a>
+  </section>
+
+  <footer>
+    <p>© 2025 BeyondIIM. All rights reserved. | Contact | Privacy Policy</p>
+  </footer>
+</body>
+</html>
