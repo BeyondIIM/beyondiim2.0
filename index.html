@@ -3,220 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeyondIIM - Crack the MBA Code</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>beyondIIM – Crack the MBA Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com">  const zudioTarget = document.querySelector("#zudioTypeText");
+  const zudioWords = ["Explore the Zudio Growth Story"];
+  let zi = 0, zj = 0, zcurrent = '', zdel = false;
+
+  function typeZudio() {
+    if (!zudioTarget) return;
+    if (zi < zudioWords.length) {
+      if (!zdel && zj <= zudioWords[zi].length) {
+        zcurrent = zudioWords[zi].substring(0, zj++);
+      } else if (zdel && zj > 0) {
+        zcurrent = zudioWords[zi].substring(0, zj--);
+      } else {
+        zdel = !zdel;
+        if (!zdel) zi = (zi + 1) % zudioWords.length;
+      }
+      zudioTarget.innerHTML = zcurrent;
+      setTimeout(typeZudio, zdel ? 100 : 180);
+    }
+  }
+  typeZudio();
+</script>
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: white;
-      color: black;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
     }
-    header {
-      background-color: #4979C9;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
-      animation: fadeInDown 1s ease-in-out;
+    .fade-in {
+      animation: fadeIn 1.2s ease-in-out;
     }
-    header::after {
-      content: url('https://cdn-icons-png.flaticon.com/512/3062/3062634.png');
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 60px;
-      opacity: 0.15;
-    }
-    header h1 {
-      font-size: 48px;
-      margin: 0;
-    }
-    header p {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-    .cta-buttons a {
-      display: inline-block;
-      background: #4979C9;
-      color: white;
-      padding: 12px 24px;
-      margin: 20px 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s, background 0.3s;
-      animation: fadeInUp 1s ease-in-out;
-    }
-    .cta-buttons a:hover {
-      transform: scale(1.05);
-      background: #365fa2;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-      background-color: white;
-      animation: fadeIn 1.2s ease-in;
-    }
-    section h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 40px;
-      color: #4979C9;
-    }
-    .features, .courses, .mentors, .career-support, .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      text-align: center;
-      color: black;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
-    .card img {
-      max-width: 60px;
-      margin-bottom: 15px;
-    }
-    .card h3 {
-      color: #4979C9;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f2f2f2;
-      font-size: 14px;
-      color: black;
-    }
-
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
+    .bounce {
+    animation: bounce 1.5s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .slide-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  .slide-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+.blinking {
+  animation: blink 1s step-start infinite;
+  display: inline;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+</style>
+<style>
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Milky_Way_Arch.jpg/1920px-Milky_Way_Arch.jpg') center center / cover no-repeat;
+    opacity: 0.06;
+    z-index: -2;
+    pointer-events: none;
+  }
+</style>
+<style>
+  .parallax-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(#ffffff44 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
+    animation: moveStars 60s linear infinite;
+    z-index: -1;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  @keyframes moveStars {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const typeTarget = document.querySelector(".typewrite");
+    const words = ["Crack the MBA Code", "Think Like a Strategist", "Go Beyond IIM"];
+    let i = 0, j = 0, current = '', isDeleting = false;
 
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(40px);}
-      to {opacity: 1; transform: translateY(0);}
+    function type() {
+      if (!typeTarget) return;
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          current = words[i].substring(0, j++);
+        } else if (isDeleting && j > 0) {
+          current = words[i].substring(0, j--);
+        } else {
+          isDeleting = !isDeleting;
+          if (!isDeleting) i = (i + 1) % words.length;
+        }
+        typeTarget.innerHTML = '<span style="white-space: nowrap">' + current + '<span class="blinking">|</span></span>';
+        setTimeout(type, isDeleting ? 100 : 180);
+      }
     }
-
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-40px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
+    type();
+  });
+</script>
 </head>
-<body>
-  <header>
-    <h1>Crack the MBA Code with <strong>BeyondIIM</strong></h1>
-    <p>Real mentors. Real skills. Real careers.</p>
-    <div class="cta-buttons">
-      <a href="#courses">Explore Courses</a>
-      <a href="#mentors">Meet Our Mentors</a>
+<body class="bg-[#fefdf9] text-gray-800">
+  <div class="parallax-stars"></div>
+
+<!-- Header -->
+<header class="bg-white sticky top-0 z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold"><span class="text-blue-700">beyond</span><span class="text-black">IIM</span><span class="text-black">.</span></div>
+    <nav class="hidden md:flex gap-8 font-medium text-gray-600 text-sm uppercase tracking-wide">
+      <a href="#insights" class="hover:border-b-2 border-blue-600 pb-1 transition-all duration-300">Strategic Insights</a>
+      <a href="#value" class="hover:border-b-2 border-blue-600 pb-1 transition-all duration-300">Our Approach</a>
+      <a href="#contact" class="hover:border-b-2 border-blue-600 pb-1 transition-all duration-300">Contact</a>
+    </nav>
+    <a href="#contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-full text-sm uppercase font-semibold tracking-wider hover:bg-blue-700 transition-all duration-300">Start Now</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-[#0a0a0a] text-white py-24 fade-in relative overflow-hidden slide-in">
+  <div class="absolute -top-10 -left-10 w-72 h-72 bg-blue-900 bg-opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 right-0 w-56 h-56 bg-yellow-500 bg-opacity-10 rounded-full blur-2xl"></div>
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+    <div>
+      <h1 class="text-5xl font-extrabold leading-tight mb-6 text-yellow-400 typewrite"></h1>
+      <p class="text-gray-300 text-lg mb-8">Build the mindset, strategy, and clarity needed to succeed in today’s business world — not just in B-school.</p>
+      <a href="#insights" class="inline-block bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200 transition-all duration-300 bounce">
+  Explore Insights →
+</a>
     </div>
-  </header>
+    
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2>Why BeyondIIM?</h2>
-    <div class="features">
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Mentor">
-        <h3>Real IIM Mentors</h3>
-        <p>Learn directly from IIM grads & top industry leaders.</p>
+<section class="bg-black text-white relative overflow-hidden slide-in">
+  <div class="absolute -bottom-16 -right-16 w-80 h-80 bg-orange-500 bg-opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-64 h-64 bg-white bg-opacity-5 rounded-full blur-2xl"></div>
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 relative z-10">
+    <div class="p-12 md:p-20 flex flex-col justify-center">
+      <h3 class="text-sm font-bold text-orange-400 uppercase mb-3">Case Study</h3>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-white">The Zudio Disruption: <span class='text-orange-400'>India's New Fashion Playbook</span></h2>
+      <p class="text-lg text-gray-300 mb-8">Zudio didn’t just sell clothes — it sold affordability, speed, and a new way to scale without shouting. We broke it down so you can learn what real brand building looks like in action.</p>
+      <a id="zudio-type" href="https://www.linkedin.com/posts/beyondiim_zudio-activity-7339471506344767488-KoAU?utm_source=share&utm_medium=member_desktop&rcm=ACoAADzYz5kBmAk9k2lRhjhoDbEYHiqVxsTNsco" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200 transition-all duration-300">
+  <span id="zudioTypeText"></span><span class="blinking">|</span>
+</a>
+    </div>
+    
+  </div>
+</section>
+
+<section id="insights" class="py-24 bg-[#fefdf9] relative overflow-hidden slide-in">
+  <div class="absolute -top-20 -left-20 w-64 h-64 bg-blue-700 bg-opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-48 h-48 bg-yellow-500 bg-opacity-10 rounded-full blur-2xl"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">Inside the MBA Mindset</h2>
+      <p class="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">A curated blend of decision science, brand logic, and real-world business sense — sharpen your thinking, not just your theory.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:px-4">
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition-all duration-300">
+        <h3 class="text-lg font-semibold text-blue-700 mb-2">Speed-Driven Strategy</h3>
+        <p class="text-gray-600 text-[15px] leading-relaxed">Learn how execution speed drives growth and why timing beats perfection in business.</p>
       </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103625.png" alt="Career">
-        <h3>Career-Focused Skills</h3>
-        <p>Hands-on projects built for real career growth.</p>
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition-all duration-300">
+        <h3 class="text-lg font-semibold text-blue-700 mb-2">Agility Over Ad-Spend</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Discover how top brands scale by investing in systems, not just media budgets.</p>
       </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="Guidance">
-        <h3>Personal Guidance</h3>
-        <p>1-on-1 mentoring, resume reviews & mock interviews.</p>
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition-all duration-300">
+        <h3 class="text-lg font-semibold text-blue-700 mb-2">Trust-Led Growth</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Why real engagement comes from authenticity — not algorithms. And how to build it.</p>
+      </div>
+      <div class="bg-[#f7f9fb] p-8 rounded-xl shadow hover:shadow-md transition-all duration-300">
+        <h3 class="text-base font-bold text-gray-800 uppercase tracking-wide mb-2">Own Your Positioning</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Find your story. Frame it well. Stand out in a sea of sameness with precision and clarity.</p>
+      </div>
+      <div class="bg-[#f7f9fb] p-8 rounded-xl shadow hover:shadow-md transition-all duration-300">
+        <h3 class="text-base font-bold text-gray-800 uppercase tracking-wide mb-2">Ask Better Questions</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Great thinkers don’t give answers — they ask sharper questions. We show you how.</p>
+      </div>
+      <div class="bg-[#f7f9fb] p-8 rounded-xl shadow hover:shadow-md transition-all duration-300">
+        <h3 class="text-base font-bold text-gray-800 uppercase tracking-wide mb-2">Systems Thinking</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Think beyond functions. Learn to see how decisions, data, and design connect at scale.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="courses">
-    <h2>Courses We Offer</h2>
-    <div class="courses">
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2721/2721647.png" alt="IT Consulting">
-        <h3>IT Consulting</h3>
-        <p>4 weeks | Career-ready skills | Online</p>
+<!-- Value Proposition -->
+<section id="value" class="py-24 bg-[#fefdf9] relative overflow-hidden slide-in">
+  <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-900 bg-opacity-5 rounded-full blur-3xl"></div>
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+    <h2 class="text-4xl font-bold mb-6">How We Shape Leaders</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">We don’t just prep resumes — we build bold thinkers ready to navigate ambiguity, lead growth, and solve real problems with clarity.</p>
+    <div class="grid md:grid-cols-3 gap-10 text-left">
+      <div>
+        <h3 class="text-lg font-semibold mb-2 uppercase">Strategic Thinking</h3>
+        <p class="text-sm text-gray-600">Go beyond frameworks. Learn to make calls like leaders do, with structured logic and instinct.</p>
       </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3534/3534066.png" alt="Project Management">
-        <h3>Project Management</h3>
-        <p>6 weeks | Agile & PM tools | Hybrid</p>
+      <div>
+        <h3 class="text-lg font-semibold mb-2 uppercase">Mentorship That Matters</h3>
+        <p class="text-sm text-gray-600">Talk to people who’ve walked the road — IIM grads, consultants, startup founders and marketers.</p>
       </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Sales">
-        <h3>Sales & Distribution</h3>
-        <p>4 weeks | Real-world sales projects</p>
+      <div>
+        <h3 class="text-lg font-semibold mb-2 uppercase">Outcome-First Design</h3>
+        <p class="text-sm text-gray-600">Everything is reverse-engineered from goals. Offers. Roles. Decisions. That’s the lens we teach through.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="mentors">
-    <h2>Meet Your Mentors</h2>
-    <div class="mentors">
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ankit">
-        <h3>Chayan | IIM S</h3>
-        <p>Ex-BCG, Strategy Coach</p>
-      </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Riya">
-        <h3>Anurag | IIM S</h3>
-        <p>Product Manager, Meesho</p>
-      </div>
+<!-- CTA -->
+<section id="contact" class="py-24 bg-[#0a0a0a] text-white text-center slide-in">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-6">Let’s go beyond IIM.</h2>
+    <p class="text-gray-400 mb-8">If you’re tired of CAT prep and want to actually understand what makes MBAs valuable, we’re your people.</p>
+    <div class="inline-block bg-white text-black py-4 px-10 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300">
+        mail@beyondiim.org
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Career Support that Works</h2>
-    <div class="career-support">
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Success">
-        <h3>🎯 90% Interview Success</h3>
-      </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2630/2630578.png" alt="Salary">
-        <h3>💼 ₹7–20 LPA CTC</h3>
-      </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1578/1578944.png" alt="Hiring Partners">
-        <h3>🤝 40+ Hiring Partners</h3>
-      </div>
+<!-- Footer -->
+<footer class="bg-black text-white py-10">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+    <div class="mb-6 md:mb-0">
+      <h3 class="text-2xl font-bold text-white">beyond<span class="text-blue-400">IIM</span>.</h3>
+      <p class="text-sm text-gray-500 mt-2">© 2025. Crack the MBA code.</p>
     </div>
-  </section>
-
-  <section class="testimonials">
-    <h2>What Our Students Say</h2>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Testimonial">
-      <p>“BeyondIIM helped me crack a PM role at a top startup!” – Riya, IIM Lucknow</p>
+    <div class="flex space-x-6">
+      <a href="https://www.linkedin.com/company/beyondiim/" class="flex items-center gap-2 text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-5 h-5">
+  LinkedIn
+</a>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <section style="text-align: center;">
-    <h2>Ready to Crack the MBA Code?</h2>
-    <a class="cta-buttons" href="#">Start Learning Now</a>
-  </section>
+  <div class="fixed bottom-5 right-5 z-50">
+    <a href="https://www.linkedin.com/company/beyondiim/" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn Icon" class="w-10 h-10 hover:opacity-80 transition-opacity">
+    </a>
+  </div>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
 
-  <footer>
-    <p>© 2025 BeyondIIM. All rights reserved. | Contact | Privacy Policy</p>
-  </footer>
+  document.querySelectorAll('.slide-in').forEach(el => observer.observe(el));
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const zudioTarget = document.querySelector("#zudioTypeText");
+    const zudioWords = ["Explore the Zudio Growth Story"];
+    let zi = 0, zj = 0, zcurrent = '', zdel = false;
+
+    function typeZudio() {
+      if (!zudioTarget) return;
+      if (zi < zudioWords.length) {
+        if (!zdel && zj <= zudioWords[zi].length) {
+          zcurrent = zudioWords[zi].substring(0, zj++);
+        } else if (zdel && zj > 0) {
+          zcurrent = zudioWords[zi].substring(0, zj--);
+        } else {
+          zdel = !zdel;
+          if (!zdel) zi = (zi + 1) % zudioWords.length;
+        }
+        zudioTarget.innerHTML = '<span style="white-space: nowrap">' + zcurrent + '<span class="blinking">|</span></span>';
+        setTimeout(typeZudio, zdel ? 100 : 180);
+      }
+    }
+    typeZudio();
+  });
+</script>
 </body>
 </html>
